@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Basic System Colors -->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- Colors from the Selector (Original Names) -->
+    <color name="active_reddish">#FC5C7D</color>
+    <color name="inactive_bluish">#6A82FB</color>
+
+    <!-- Colors for Bottom Navigation (Fixing Symbol Resolution) -->
+    <color name="bottom_nav_background">#FFFFFF</color>
+    <color name="nav_active">#FF3B30</color>
+    <color name="nav_inactive">#999999</color>
+
+</resources>

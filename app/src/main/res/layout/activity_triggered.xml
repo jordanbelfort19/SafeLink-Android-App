@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    tools:context=".TriggeredActivity">
+
+    <!-- Modern standard for fragments, fills the entire background -->
+    <!-- Reverted to <fragment> to fix Android Studio Preview error -->
+    <fragment
+        android:id="@+id/map_fragment"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Top gradient to make the status bar and warning text readable over the map -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="#66000000"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Modern Pill-Shaped Alert Badge -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cv_alert_badge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        app:cardBackgroundColor="#22FF3B30"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="0dp"
+        app:strokeColor="#FF3B30"
+        app:strokeWidth="1dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-black"
+            android:letterSpacing="0.05"
+            android:paddingStart="20dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="10dp"
+            android:text="HELP IS EN ROUTE"
+            android:textColor="#FF3B30"
+            android:textSize="16sp" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Floating Dashboard Panel -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/control_panel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:layout_marginBottom="24dp"
+        app:cardBackgroundColor="#1C1C1E"
+        app:cardCornerRadius="28dp"
+        app:cardElevation="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="24dp">
+
+            <TextView
+                android:id="@+id/tv_timer_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:letterSpacing="0.05"
+                android:text="ESTIMATED ARRIVAL"
+                android:textColor="#8E8E93"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_timer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:text="05:00"
+                android:textColor="#FFFFFF"
+                android:textSize="44sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_timer_label" />
+
+            <!-- Primary Action Button: Solid Red for emergency focus -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_record_video"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="sans-serif-bold"
+                android:letterSpacing="0.02"
+                android:text="RECORD VIDEO"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                app:backgroundTint="#FF3B30"
+                app:cornerRadius="16dp"
+                app:icon="@drawable/ic_videocam"
+                app:iconGravity="textStart"
+                app:iconTint="#FFFFFF"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_timer" />
+
+            <!-- Secondary Actions: Side-by-side robust blocks instead of plain text -->
+            <LinearLayout
+                android:id="@+id/ll_call_buttons"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_record_video">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_call_police"
+                    android:layout_width="0dp"
+                    android:layout_height="56dp"
+                    android:layout_marginEnd="6dp"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Police"
+                    android:textColor="#4CA6FF"
+                    app:backgroundTint="#2C2C2E"
+                    app:cornerRadius="16dp"
+                    app:icon="@drawable/ic_local_police"
+                    app:iconGravity="textStart"
+                    app:iconTint="#4CA6FF" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_call_guardian"
+                    android:layout_width="0dp"
+                    android:layout_height="56dp"
+                    android:layout_marginStart="6dp"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Guardian"
+                    android:textColor="#32D74B"
+                    app:backgroundTint="#2C2C2E"
+                    app:cornerRadius="16dp"
+                    app:icon="@drawable/ic_guardian"
+                    app:iconGravity="textStart"
+                    app:iconTint="#32D74B" />
+
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</androidx.constraintlayout.widget.ConstraintLayout>
